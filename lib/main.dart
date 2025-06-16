@@ -1,36 +1,22 @@
 import 'package:flutter/material.dart';
-
+import 'routes/app_routes.dart';
+import 'view/login_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mi App Flutter',
+      title: 'Widson CRM',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Center(
-        child: Text(
-          'Page 1 ',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.routes,
     );
   }
 }

@@ -15,8 +15,14 @@ class LoginView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Imagen centrada arriba
+            Image.asset(
+              'assets/img/ic_login_widman.jpg',
+              height: 120,
+            ),
+            SizedBox(height: 24),
             CustomInputField(
-              controller: controller!.userController,
+              controller: controller.userController,
               labelText: 'Usuario',
             ),
             SizedBox(height: 16),
@@ -44,7 +50,3 @@ class LoginView extends StatelessWidget {
     );
   }
 }
-
-
-
-

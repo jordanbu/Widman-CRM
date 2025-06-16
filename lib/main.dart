@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'Page Principal',
+          'Page 1 ',
           style: TextStyle(fontSize: 24),
         ),
       ),

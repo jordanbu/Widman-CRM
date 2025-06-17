@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../view/login_view.dart';
 import '../view/home_view.dart';
 
@@ -8,6 +7,6 @@ class AppRoutes {
 
   static final routes = {
     login: (context) => LoginView(),
-    home: (context) => HomeView(),
+    home: (context) => const HomeView(),
   };
 }

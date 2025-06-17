@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'routes/app_routes.dart';
+import 'view/splash_view.dart'; // Import the SplashView
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'Widson CRM',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: AppRoutes.login,
-      routes: AppRoutes.routes,
+      initialRoute: '/', // Change to start with SplashView
+      routes: {
+        '/': (context) => const SplashView(), // Map '/' to SplashView
+        ...AppRoutes.routes, // Include existing routes from AppRoutes
+      },
     );
   }
 }
-

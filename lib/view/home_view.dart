@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF0D47A1), Color(0xFF1976D2)],
+            colors: [Color(0xFF303F9F), Color(0xFF42A5F5)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -23,8 +23,10 @@ class HomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
                 child: Row(
+                  
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                      
                     const Text(
                       "Inicio",
                       style: TextStyle(
@@ -50,9 +52,9 @@ class HomeView extends StatelessWidget {
               const Spacer(),
 
               // Mensaje de bienvenida centrado
-              Center(
+              const Center(
                 child: Column(
-                  children: const [
+                  children:[
                     Icon(Icons.business_center, size: 80, color: Colors.white),
                     SizedBox(height: 20),
                     Text(

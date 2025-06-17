@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../controllers/login_controller.dart';
 import '../routes/app_routes.dart';
-import '../widgets/custom_input_field.dart';
 
 class LoginView extends StatelessWidget {
   final controller = LoginController();
@@ -13,7 +12,7 @@ class LoginView extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF009688), Color(0xFF42A5F5)],
+            colors: [Color(0xFF303F9F), Color(0xFF42A5F5)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -25,26 +24,65 @@ class LoginView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Campo usuario
-                  Image.asset('assets/logo_wid.jpg',
-                  height: 100,
-                    width: 100,
+                  // Espacio y logo
+                  const Padding(padding: EdgeInsets.all(10)),
+                  Image.asset(
+                    'assets/logo_wid.png',
+                    height: 190,
+                    width: 190,
                   ),
-                  CustomInputField(
+                  // Campo usuario con icono
+                  TextField(
                     controller: controller.userController,
-                    labelText: 'Usuario',
+                    decoration: InputDecoration(
+                      labelText: 'Usuario',
+                      prefixIcon: const Icon(Icons.person, color: Colors.black),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.9),
+                      labelStyle: const TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 20),
 
-                  // Campo contraseña
-                  CustomInputField(
+                  // Campo contraseña con icono
+                  TextField(
                     controller: controller.passwordController,
-                    labelText: 'Contraseña',
                     obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Contraseña',
+                      prefixIcon: const Icon(Icons.lock, color: Colors.black),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.9),
+                      labelStyle: const TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 30),
 
-                  // Botón estilizado
+                  // Botón estilizado con icono
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -66,13 +104,20 @@ class LoginView extends StatelessWidget {
                           );
                         }
                       },
-                      child: const Text(
-                        "INGRESAR",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.2,
-                        ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.login, size: 18),
+                          SizedBox(width: 8),
+                          Text(
+                            "INGRESAR",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

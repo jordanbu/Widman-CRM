@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_view.dart'; // Asegúrate de tener el import correcto
+import 'login_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,26 +7,71 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Inicio"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout),
-            tooltip: 'Cerrar sesión',
-            onPressed: () {
-              // Regresa a la pantalla de login
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginView()),
-              );
-            },
+      // Fondo con degradado moderno
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF0D47A1), Color(0xFF1976D2)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-        ],
-      ),
-      body: Center(
-        child: Text(
-          'Bienvenido a Widson CRM',
-          style: TextStyle(fontSize: 24),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // AppBar personalizado con ícono de logout
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Inicio",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.logout, color: Colors.white),
+                      tooltip: 'Cerrar sesión',
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginView()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              const Spacer(),
+
+              // Mensaje de bienvenida centrado
+              Center(
+                child: Column(
+                  children: const [
+                    Icon(Icons.business_center, size: 80, color: Colors.white),
+                    SizedBox(height: 20),
+                    Text(
+                      'Bienvenido a Widson CRM',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
